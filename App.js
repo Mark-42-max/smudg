@@ -1,20 +1,103 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, SafeAreaView, ScrollView } from "react-native";
+import {
+  useFonts,
+  Inter_100Thin,
+  Inter_200ExtraLight,
+  Inter_300Light,
+  Inter_400Regular,
+  Inter_500Medium,
+  Inter_600SemiBold,
+  Inter_700Bold,
+  Inter_800ExtraBold,
+  Inter_900Black,
+} from "@expo-google-fonts/inter";
+import WelcomeScreen from "./screens/WelcomeScreen";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Q1 from "./screens/Q1";
+import Q2 from "./screens/Q2";
+import Q3 from "./screens/Q3";
+import Q4 from "./screens/Q4";
+import Recommendation from "./screens/Recommendation";
+import FaceProfile from "./screens/FaceProfile";
+import Login from "./screens/Login";
+import Verify from "./screens/Verify";
 
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
-  );
+  let [fontsLoaded] = useFonts({
+    Inter_100Thin,
+    Inter_200ExtraLight,
+    Inter_300Light,
+    Inter_400Regular,
+    Inter_500Medium,
+    Inter_600SemiBold,
+    Inter_700Bold,
+    Inter_800ExtraBold,
+    Inter_900Black,
+  });
+  const Stack = createNativeStackNavigator();
+  if (!fontsLoaded) {
+    return <Text>Loading...</Text>;
+  } else {
+    return (
+      <SafeAreaView style={styles.container}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Welcome">
+            <Stack.Screen
+              name="Welcome"
+              component={WelcomeScreen}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Q1"
+              component={Q1}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Q2"
+              component={Q2}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Q3"
+              component={Q3}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Q4"
+              component={Q4}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Recommendation"
+              component={Recommendation}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Face"
+              component={FaceProfile}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Login"
+              component={Login}
+              options={{ headerShown: false }}
+            />
+            <Stack.Screen
+              name="Verify"
+              component={Verify}
+              options={{ headerShown: false }}
+            />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </SafeAreaView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    backgroundColor: "#E5E5E5",
   },
 });
