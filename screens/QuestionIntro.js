@@ -11,6 +11,8 @@ import tw from "tailwind-react-native-classnames";
 import arrowDown from "../assets/arrowDown.png";
 import { Input } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
+import { useDispatch } from "react-redux";
+import { setGender, setName } from "../slices/optionSlice";
 
 const QuestionIntro = () => {
   const [isSelect1, setIsSelect1] = useState(false);
@@ -20,7 +22,9 @@ const QuestionIntro = () => {
   const [op2] = useState("Female");
   const [op3] = useState("Prefer not to say");
   const [op, setOp] = useState("");
+  const [n, setN] = useState("Aishwarya");
   const navigation = useNavigation();
+  const dispatch = useDispatch();
   return (
     <SafeAreaView style={[tw`flex-1`, { backgroundColor: "#E5E5E5" }]}>
       <View style={[tw`items-center`, { paddingTop: 70 }]}>
@@ -49,6 +53,8 @@ const QuestionIntro = () => {
             tw`mt-5 font-bold text-2xl`,
             { fontFamily: "Inter_400Regular" },
           ]}
+          value={n}
+          onChangeText={(text) => setN(text)}
         />
         <Text
           style={[
@@ -150,6 +156,8 @@ const QuestionIntro = () => {
             { width: 270, height: 70, backgroundColor: "#EC0C77" },
           ]}
           onPress={() => {
+            dispatch(setName({ name: n }));
+            dispatch(setGender({ gender: op }));
             navigation.navigate("Q1");
           }}
           disabled={op === "" ? true : false}

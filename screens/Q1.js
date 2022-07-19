@@ -10,6 +10,8 @@ import React, { useState } from "react";
 import tw from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import NavHeader from "../components/NavHeader";
+import { useDispatch } from "react-redux";
+import { setQ1 } from "../slices/optionSlice";
 
 const data = [
   {
@@ -32,7 +34,8 @@ const data = [
 
 const Q1 = () => {
   const navigation = useNavigation();
-  const [op, setOp] = useState(null);
+  const [op, setOp] = useState();
+  const dispatch = useDispatch();
   return (
     <SafeAreaView>
       <NavHeader page={1} />
@@ -65,6 +68,7 @@ const Q1 = () => {
               ]}
               onPress={() => {
                 setOp(item);
+                dispatch(setQ1({ q1: item }));
                 navigation.navigate("Q2");
               }}
             >

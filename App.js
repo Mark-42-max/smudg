@@ -22,6 +22,8 @@ import Recommendation from "./screens/Recommendation";
 import FaceProfile from "./screens/FaceProfile";
 import Login from "./screens/Login";
 import Verify from "./screens/Verify";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -41,55 +43,57 @@ export default function App() {
   } else {
     return (
       <SafeAreaView style={styles.container}>
-        <NavigationContainer>
-          <Stack.Navigator initialRouteName="Welcome">
-            <Stack.Screen
-              name="Welcome"
-              component={WelcomeScreen}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Q1"
-              component={Q1}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Q2"
-              component={Q2}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Q3"
-              component={Q3}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Q4"
-              component={Q4}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Recommendation"
-              component={Recommendation}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Face"
-              component={FaceProfile}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Login"
-              component={Login}
-              options={{ headerShown: false }}
-            />
-            <Stack.Screen
-              name="Verify"
-              component={Verify}
-              options={{ headerShown: false }}
-            />
-          </Stack.Navigator>
-        </NavigationContainer>
+        <Provider store={store}>
+          <NavigationContainer>
+            <Stack.Navigator initialRouteName="Welcome">
+              <Stack.Screen
+                name="Welcome"
+                component={WelcomeScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Q1"
+                component={Q1}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Q2"
+                component={Q2}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Q3"
+                component={Q3}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Q4"
+                component={Q4}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Recommendation"
+                component={Recommendation}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Face"
+                component={FaceProfile}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Login"
+                component={Login}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Verify"
+                component={Verify}
+                options={{ headerShown: false }}
+              />
+            </Stack.Navigator>
+          </NavigationContainer>
+        </Provider>
       </SafeAreaView>
     );
   }

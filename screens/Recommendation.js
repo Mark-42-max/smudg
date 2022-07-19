@@ -10,9 +10,24 @@ import React from "react";
 import tw from "tailwind-react-native-classnames";
 import qmark from "../assets/qmark.png";
 import { useNavigation } from "@react-navigation/native";
+import { useSelector } from "react-redux";
+import {
+  selectGender,
+  selectName,
+  selectQ1,
+  selectQ2,
+  selectQ3,
+  selectQ4,
+} from "../slices/optionSlice";
 
 const Recommendation = () => {
   const navigation = useNavigation();
+  const name = useSelector(selectName);
+  const gender = useSelector(selectGender);
+  const q1 = useSelector(selectQ1);
+  const q2 = useSelector(selectQ2);
+  const q3 = useSelector(selectQ3);
+  const q4 = useSelector(selectQ4);
   return (
     <SafeAreaView>
       <View style={tw`mt-24 px-7`}>
@@ -67,7 +82,15 @@ const Recommendation = () => {
             </Text>
             <TouchableOpacity
               style={tw`absolute -bottom-10`}
-              onPress={() => navigation.navigate("Face")}
+              onPress={() => {
+                console.log(name);
+                console.log(gender);
+                console.log(q1);
+                console.log(q2);
+                console.log(q3);
+                console.log(q4);
+                navigation.navigate("Face");
+              }}
             >
               <Image source={qmark} />
             </TouchableOpacity>
