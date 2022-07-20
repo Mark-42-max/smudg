@@ -39,11 +39,7 @@ const Q1 = () => {
   return (
     <SafeAreaView>
       <NavHeader page={1} />
-      <Text
-        style={[tw`text-2xl mt-20 mx-auto`, { fontFamily: "Inter_400Regular" }]}
-      >
-        What are you looking for?
-      </Text>
+      <Text style={styles.text1}>What are you looking for?</Text>
       <Text
         style={[
           tw`text-base mt-3 mx-auto`,
@@ -52,16 +48,16 @@ const Q1 = () => {
       >
         One line for further info, can be removed
       </Text>
-      <View style={tw`mt-24`}>
+      <View style={tw`mt-48`}>
         <FlatList
           keyExtractor={(item) => item.id}
           data={data}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={[
-                tw`items-center justify-center border border-gray-300 rounded-xl mx-auto mt-7`,
+                tw`items-center justify-center border border-gray-300 rounded-xl mx-auto mt-4`,
                 {
-                  width: 280,
+                  width: 300,
                   height: 70,
                   backgroundColor: item.id === op?.id ? "#ffecf4" : "white",
                 },
@@ -93,4 +89,13 @@ const Q1 = () => {
 
 export default Q1;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text1: {
+    fontFamily: "Inter_400Regular",
+    marginTop: 80,
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontSize: 24,
+    lineHeight: 32,
+  },
+});

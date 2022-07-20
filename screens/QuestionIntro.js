@@ -5,6 +5,7 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
+  KeyboardAvoidingView,
 } from "react-native";
 import React, { useState } from "react";
 import tw from "tailwind-react-native-classnames";
@@ -27,7 +28,7 @@ const QuestionIntro = () => {
   const dispatch = useDispatch();
   return (
     <SafeAreaView style={[tw`flex-1`, { backgroundColor: "#E5E5E5" }]}>
-      <View style={[tw`items-center`, { paddingTop: 70 }]}>
+      <View style={[tw`items-center`, { paddingTop: 25 }]}>
         <Image source={arrowDown} />
       </View>
       <Text
@@ -38,7 +39,7 @@ const QuestionIntro = () => {
       >
         Let’s answer a few questions to get started
       </Text>
-      <View style={[tw`mx-auto mt-14`, { width: 300 }]}>
+      <View style={[tw`mx-auto mt-20`, { width: 280 }]}>
         <Text
           style={[
             tw`text-gray-500 text-lg`,
@@ -58,18 +59,18 @@ const QuestionIntro = () => {
         />
         <Text
           style={[
-            tw`text-gray-500 text-lg mt-5`,
+            tw`text-gray-500 text-lg mt-14`,
             { fontFamily: "Inter_400Regular" },
           ]}
         >
           How do you identify yourself?
         </Text>
-        <View style={tw`flex-row justify-around items-center mt-10`}>
+        <View style={tw`flex-row justify-between items-center mt-6`}>
           <TouchableOpacity
             style={[
               tw`items-center justify-center border border-gray-300 rounded-xl`,
               {
-                width: 120,
+                width: 132,
                 height: 70,
                 backgroundColor: isSelect1 ? "#ffecf4" : "white",
               },
@@ -97,7 +98,7 @@ const QuestionIntro = () => {
             style={[
               tw`items-center justify-center border border-gray-300 rounded-xl`,
               {
-                width: 120,
+                width: 132,
                 height: 70,
                 backgroundColor: isSelect2 ? "#ffecf4" : "white",
               },
@@ -124,9 +125,9 @@ const QuestionIntro = () => {
         </View>
         <TouchableOpacity
           style={[
-            tw`items-center justify-center border border-gray-300 rounded-xl mt-5 mx-auto`,
+            tw`items-center justify-center border border-gray-300 rounded-xl mt-3 mx-auto`,
             {
-              width: 270,
+              width: 280,
               height: 70,
               backgroundColor: isSelect3 ? "#ffecf4" : "white",
             },
@@ -152,7 +153,7 @@ const QuestionIntro = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            tw`items-center justify-center rounded-xl mt-10 mx-auto`,
+            tw`items-center justify-center rounded-xl mt-14 mx-auto`,
             { width: 270, height: 70, backgroundColor: "#EC0C77" },
           ]}
           onPress={() => {

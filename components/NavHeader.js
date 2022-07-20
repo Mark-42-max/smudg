@@ -15,7 +15,7 @@ const NavHeader = ({ page }) => {
   const navigation = useNavigation();
   return (
     <SafeAreaView>
-      <View style={[tw`flex-row mt-20 mx-auto items-center`, { width: 280 }]}>
+      <View style={styles.headingContainer}>
         <TouchableOpacity onPress={() => navigation.goBack()}>
           <Image source={backArrow} />
         </TouchableOpacity>
@@ -34,4 +34,13 @@ const NavHeader = ({ page }) => {
 
 export default NavHeader;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  headingContainer: {
+    width: 280,
+    marginTop: 64,
+    flexDirection: "row",
+    marginLeft: "auto",
+    marginRight: "auto",
+    alignItems: "center",
+  },
+});

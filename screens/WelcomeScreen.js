@@ -16,12 +16,8 @@ const WelcomeScreen = () => {
       style={{ backgroundColor: "#E5E5E5" }}
     >
       <View style={[tw`flex-1`, { backgroundColor: "#E5E5E5" }]}>
-        <View
-          style={[tw`flex-row justify-between pt-20 mx-auto`, { width: 300 }]}
-        >
-          <View
-            style={{ width: 80, height: 80, backgroundColor: "#DDDDDD" }}
-          ></View>
+        <View style={styles.topContainer}>
+          <View style={styles.box}></View>
           <TouchableOpacity onPress={() => navigation.navigate("Login")}>
             <Text
               style={[tw`text-xl underline`, { fontFamily: "Inter_700Bold" }]}
@@ -30,24 +26,19 @@ const WelcomeScreen = () => {
             </Text>
           </TouchableOpacity>
         </View>
-        <View style={[tw`mx-auto mt-32`, { width: 300 }]}>
+        <View style={styles.midContainer}>
           <Text style={[tw`text-4xl`, { fontFamily: "Inter_500Medium" }]}>
             Etiam ut molestie nisl, sed maximus velit.
           </Text>
-          <Text style={[tw`pt-5 text-lg`, { fontFamily: "Inter_400Regular" }]}>
+          <Text style={[tw`pt-4 text-lg`, { fontFamily: "Inter_400Regular" }]}>
             Some funny and witty copy here.
           </Text>
         </View>
-        <View
-          style={[
-            tw`justify-center items-center absolute`,
-            { left: "28%", bottom: 20 },
-          ]}
-        >
+        <View style={styles.bottomContainer}>
           <Text style={[tw`text-xl`, { fontFamily: "Inter_500Medium" }]}>
             swipe up to begin
           </Text>
-          <Image source={arrowUp} style={{ marginTop: 30 }} />
+          <Image source={arrowUp} style={styles.img} />
         </View>
       </View>
       <QuestionIntro />
@@ -57,4 +48,36 @@ const WelcomeScreen = () => {
 
 export default WelcomeScreen;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  topContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    width: 300,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 48,
+  },
+  box: {
+    width: 80,
+    height: 80,
+    backgroundColor: "#DDDDDD",
+  },
+  midContainer: {
+    width: 300,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 145,
+  },
+  bottomContainer: {
+    position: "absolute",
+    left: "28%",
+    bottom: 67,
+    alignItems: "center",
+  },
+  img: {
+    marginTop: 24,
+    width: 21,
+    height: 18,
+    resizeMode: "contain",
+  },
+});

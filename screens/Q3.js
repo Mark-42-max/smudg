@@ -43,9 +43,7 @@ const Q3 = () => {
   return (
     <SafeAreaView>
       <NavHeader page={3} />
-      <Text
-        style={[tw`text-2xl mt-10 mx-auto`, { fontFamily: "Inter_400Regular" }]}
-      >
+      <Text style={styles.text1}>
         How often do you purchase beauty products?
       </Text>
       <Text
@@ -56,14 +54,14 @@ const Q3 = () => {
       >
         You can select multiple options
       </Text>
-      <View style={[tw`mt-10`]}>
+      <View style={[tw`pt-32`]}>
         <FlatList
           keyExtractor={(item) => item.id}
           data={op}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={[
-                tw`items-center border border-gray-300 rounded-xl mx-auto mt-5 flex-row pl-5`,
+                tw`items-center border border-gray-300 rounded-xl mx-auto mt-4 flex-row pl-5`,
                 {
                   width: 300,
                   height: 70,
@@ -107,7 +105,7 @@ const Q3 = () => {
       </View>
       <TouchableOpacity
         style={[
-          tw`items-center justify-center rounded-xl mt-5 mx-auto`,
+          tw`items-center justify-center rounded-xl mt-6 mx-auto`,
           { width: 300, height: 70, backgroundColor: "#EC0C77" },
         ]}
         onPress={() => {
@@ -130,4 +128,13 @@ const Q3 = () => {
 
 export default Q3;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  text1: {
+    fontFamily: "Inter_400Regular",
+    marginTop: 40,
+    marginLeft: "auto",
+    marginRight: "auto",
+    fontSize: 24,
+    lineHeight: 32,
+  },
+});

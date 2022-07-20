@@ -85,12 +85,12 @@ const Q4 = () => {
       >
         Select atleast two options
       </Text>
-      <View style={[tw`flex-row flex-wrap mt-5 mx-auto`, { width: 340 }]}>
+      <View style={styles.container}>
         {op.map((item) => (
           <TouchableOpacity
             key={item.id}
             style={[
-              tw`border border-gray-300 p-5 rounded-2xl ml-3 mt-2`,
+              tw`border border-gray-300 p-5 rounded-2xl ml-3 mt-3`,
               {
                 backgroundColor: item.active === true ? "#ffecf4" : "white",
               },
@@ -121,7 +121,7 @@ const Q4 = () => {
       </View>
       <TouchableOpacity
         style={[
-          tw`items-center justify-center rounded-xl mt-5 mx-auto`,
+          tw`items-center justify-center rounded-xl mt-7 mx-auto`,
           { width: 300, height: 70, backgroundColor: "#EC0C77" },
         ]}
         onPress={() => {
@@ -144,4 +144,13 @@ const Q4 = () => {
 
 export default Q4;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    flexWrap: "wrap",
+    width: 340,
+    marginTop: 40,
+    marginLeft: "auto",
+    marginRight: "auto",
+  },
+});
