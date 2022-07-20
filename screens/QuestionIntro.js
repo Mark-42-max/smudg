@@ -153,7 +153,7 @@ const QuestionIntro = () => {
         </TouchableOpacity>
         <TouchableOpacity
           style={[
-            tw`items-center justify-center rounded-xl mt-14 mx-auto`,
+            tw`items-center justify-center rounded-xl mt-10 mx-auto`,
             { width: 270, height: 70, backgroundColor: "#EC0C77" },
           ]}
           onPress={() => {

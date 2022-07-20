@@ -90,7 +90,7 @@ const Q4 = () => {
           <TouchableOpacity
             key={item.id}
             style={[
-              tw`border border-gray-300 p-5 rounded-2xl ml-3 mt-3`,
+              tw`border border-gray-300 p-5 rounded-2xl ml-3 mt-2`,
               {
                 backgroundColor: item.active === true ? "#ffecf4" : "white",
               },
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     width: 340,
-    marginTop: 40,
+    marginTop: 30,
     marginLeft: "auto",
     marginRight: "auto",
   },
