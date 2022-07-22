@@ -21,6 +21,7 @@ import Q4 from "./screens/Q4";
 import Recommendation from "./screens/Recommendation";
 import FaceProfile from "./screens/FaceProfile";
 import Login from "./screens/Login";
+import Learn from "./screens/Learn";
 import Verify from "./screens/Verify";
 import { Provider } from "react-redux";
 import { store } from "./store";
@@ -45,7 +46,12 @@ export default function App() {
       <SafeAreaView style={styles.container}>
         <Provider store={store}>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Welcome">
+            <Stack.Navigator initialRouteName="Learn">
+            <Stack.Screen
+                name="Learn"
+                component={Learn}
+                options={{ headerShown: false }}
+              />
               <Stack.Screen
                 name="Welcome"
                 component={WelcomeScreen}
