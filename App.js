@@ -24,6 +24,8 @@ import Login from "./screens/Login";
 import Verify from "./screens/Verify";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import NewLogin from "./screens/NewLogin";
+import GoogleAuth from "./components/GoogleAuth";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -89,6 +91,17 @@ export default function App() {
               <Stack.Screen
                 name="Verify"
                 component={Verify}
+                options={{ headerShown: false }}
+              />
+              {/* Just testing the login API */}
+              <Stack.Screen
+                name="NewLogin"
+                component={NewLogin}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="GoogleLogin"
+                component={GoogleAuth}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>

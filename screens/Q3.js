@@ -54,7 +54,7 @@ const Q3 = () => {
       >
         You can select multiple options
       </Text>
-      <View style={[tw`pt-24`]}>
+      <View style={[tw`pt-20`]}>
         <FlatList
           keyExtractor={(item) => item.id}
           data={op}

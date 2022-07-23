@@ -121,7 +121,7 @@ const Q4 = () => {
       </View>
       <TouchableOpacity
         style={[
-          tw`items-center justify-center rounded-xl mt-7 mx-auto`,
+          tw`items-center justify-center rounded-xl mt-5 mx-auto`,
           { width: 300, height: 70, backgroundColor: "#EC0C77" },
         ]}
         onPress={() => {
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     flexWrap: "wrap",
     width: 340,
-    marginTop: 30,
+    marginTop: 20,
     marginLeft: "auto",
     marginRight: "auto",
   },

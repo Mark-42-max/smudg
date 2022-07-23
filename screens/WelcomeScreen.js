@@ -18,7 +18,7 @@ const WelcomeScreen = () => {
       <View style={[tw`flex-1`, { backgroundColor: "#E5E5E5" }]}>
         <View style={styles.topContainer}>
           <View style={styles.box}></View>
-          <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+          <TouchableOpacity onPress={() => navigation.navigate("GoogleLogin")}>
             <Text
               style={[tw`text-xl underline`, { fontFamily: "Inter_700Bold" }]}
             >
