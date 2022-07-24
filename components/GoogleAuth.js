@@ -1,7 +1,7 @@
 import * as React from "react";
 import * as WebBrowser from "expo-web-browser";
 import * as Google from "expo-auth-session/providers/google";
-import { Button, StyleSheet, View, StatusBar } from "react-native";
+import { Button, StyleSheet, View, StatusBar, Image, Text } from "react-native";
 
 WebBrowser.maybeCompleteAuthSession();
 
@@ -53,7 +53,7 @@ const GoogleAuth = () => {
           accessToken
             ? getUserData
             : () => {
-                promptAsync({ useProxy: false, showInRecents: true });
+                promptAsync({ showInRecents: true });
               }
         }
       />
