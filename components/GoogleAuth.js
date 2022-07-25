@@ -11,7 +11,7 @@ const GoogleAuth = () => {
   const [message, setMessage] = React.useState();
   const [request, response, promptAsync] = Google.useAuthRequest({
     expoClientId:
-      "670260727829-3jfi0l6jv6itrndk25046h9hidp2kf91.apps.googleusercontent.com",
+      "1081849788388-vvct7qcvmgerd5qnmh362ge4ri2sma61.apps.googleusercontent.com",
   });
   React.useEffect(() => {
     setMessage(JSON.stringify(response));

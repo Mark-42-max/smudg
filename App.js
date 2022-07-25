@@ -1,16 +1,16 @@
 import { StyleSheet, Text, View, SafeAreaView, ScrollView } from "react-native";
 import {
   useFonts,
-  Inter_100Thin,
-  Inter_200ExtraLight,
-  Inter_300Light,
-  Inter_400Regular,
-  Inter_500Medium,
-  Inter_600SemiBold,
-  Inter_700Bold,
-  Inter_800ExtraBold,
-  Inter_900Black,
-} from "@expo-google-fonts/inter";
+  Spartan_100Thin,
+  Spartan_200ExtraLight,
+  Spartan_300Light,
+  Spartan_400Regular,
+  Spartan_500Medium,
+  Spartan_600SemiBold,
+  Spartan_700Bold,
+  Spartan_800ExtraBold,
+  Spartan_900Black,
+} from "@expo-google-fonts/spartan";
 import WelcomeScreen from "./screens/WelcomeScreen";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
@@ -26,31 +26,32 @@ import { Provider } from "react-redux";
 import { store } from "./store";
 import NewLogin from "./screens/NewLogin";
 import GoogleAuth from "./components/GoogleAuth";
+import SplashScreen from "./screens/SplashScreen";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
-    Inter_100Thin,
-    Inter_200ExtraLight,
-    Inter_300Light,
-    Inter_400Regular,
-    Inter_500Medium,
-    Inter_600SemiBold,
-    Inter_700Bold,
-    Inter_800ExtraBold,
-    Inter_900Black,
+    Spartan_100Thin,
+    Spartan_200ExtraLight,
+    Spartan_300Light,
+    Spartan_400Regular,
+    Spartan_500Medium,
+    Spartan_600SemiBold,
+    Spartan_700Bold,
+    Spartan_800ExtraBold,
+    Spartan_900Black,
   });
   const Stack = createNativeStackNavigator();
   if (!fontsLoaded) {
     return <Text>Loading...</Text>;
   } else {
     return (
-      <SafeAreaView style={styles.container}>
+      <SafeAreaView style={{ flex: 1 }}>
         <Provider store={store}>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Welcome">
+            <Stack.Navigator initialRouteName="Splash">
               <Stack.Screen
-                name="Welcome"
-                component={WelcomeScreen}
+                name="Splash"
+                component={SplashScreen}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -112,9 +113,4 @@ export default function App() {
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#E5E5E5",
-  },
-});
+const styles = StyleSheet.create({});
