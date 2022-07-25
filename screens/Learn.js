@@ -11,18 +11,15 @@ import {
   import cross from "../assets/cross.png";
   import tw from "tailwind-react-native-classnames";
   import { useNavigation } from "@react-navigation/native";
+  import Tabs from "../components/Tabs";
+import { StateProviders } from "../Context/StateContext";
   
-  const Login = () => {
+  const Learn = () => {
     const navigation = useNavigation();
     return (
+      <StateProviders>
       <SafeAreaView>
-        <TouchableOpacity
-          style={tw`absolute right-10 top-24`}
-          onPress={() => navigation.goBack()}
-        >
-          <Image source={cross} />
-        </TouchableOpacity>
-        <View style={tw`mt-40 px-7`}>
+        <View style={tw`mt-24 px-7`}>
           <Text style={[tw`text-4xl`, { fontFamily: "Inter_400Regular" }]}>
             Learn
           </Text>
@@ -35,11 +32,13 @@ import {
             Nunc rutrum bibendum dui, a commodo quam placerat nec.
           </Text>
         </View>
+        <Tabs />
       </SafeAreaView>
+      </StateProviders>
     );
   };
   
-  export default Login;
+  export default Learn;
   
   const styles = StyleSheet.create({});
   
