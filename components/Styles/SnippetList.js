@@ -27,7 +27,7 @@ export default StyleSheet.create({
     right: {
         width: "50%",
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'space-evenly',
     },
     hashtags: {
         flexDirection: 'row',
@@ -77,10 +77,11 @@ export default StyleSheet.create({
         width: 100,
         borderColor: "#B5B5B5",
         borderWidth: 1,
-        borderRadius: 32,
+        borderRadius: 36,
         flexDirection: "row",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
         alignItems: "center",
+        padding: 7,
     },
     btnOutlineTransparent: {
         width: 100,
@@ -90,11 +91,12 @@ export default StyleSheet.create({
         flexDirection: "row",
         justifyContent: "space-around",
         alignItems: "center",
-        backgroundColor: "#000"
+        backgroundColor: "#000",
+        padding: 7
     },
     menubtnOutline: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         borderRadius: 50,
         alignItems: "center",
         justifyContent: "center",

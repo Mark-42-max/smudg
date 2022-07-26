@@ -30,7 +30,7 @@ export default StyleSheet.create({
     right: {
         width: "60%",
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'space-evenly',
     },
     hashtags: {
         flexDirection: 'row',

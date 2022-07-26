@@ -81,7 +81,7 @@ export default function Card({id, title, feat, uri}) {
                 {includeId ? <TouchableOpacity onPress={() => setIsSavedSnippet(isSaved => {
                     return isSaved.filter(item => item !== id);
                 })} style={styles.saveButton}>
-                    <View style={[tw`p-2`,styles.btnOutlineTransparent]}>
+                    <View style={[styles.btnOutlineTransparent]}>
                         <Bookmark color="#FFFFFF"/>
                         <Text style={{color: '#FFFFFF'}}>
                             SAVED
@@ -90,7 +90,7 @@ export default function Card({id, title, feat, uri}) {
                 </TouchableOpacity>  : <TouchableOpacity onPress={() => setIsSavedSnippet(isSaved => {
                     return [...isSaved, id];
                 })} style={styles.saveButton}>
-                    <View style={[tw`p-2`,styles.btnOutlineBlock]}>
+                    <View style={[styles.btnOutlineBlock]}>
                         <Bookmark color="#000000"/>
                         <Text>
                             SAVE
