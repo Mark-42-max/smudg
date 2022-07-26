@@ -8,7 +8,6 @@ import {
 } from "react-native";
 import React, { useState } from "react";
 import NavHeader from "../components/NavHeader";
-import tw from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { setQ3 } from "../slices/optionSlice";
