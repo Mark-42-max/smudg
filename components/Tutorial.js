@@ -4,7 +4,7 @@ import Tuts from './Tuts'
 
 export default function Tutorial({data}) {
   return (
-    <View style={{height: '70%'}}>
+    <View style={{height: '69%'}}>
         <FlatList 
           data={data}
           renderItem={({item, index}) => ( <Tuts key={index} id={item.id} title={item.title} influencer={item.influencer} uri={item.vidUri} desig={item.designation} price={item.price}/> )}

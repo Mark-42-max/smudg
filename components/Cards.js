@@ -4,7 +4,7 @@ import Card from './Card'
 
 export default function Cards({data}) {
   return (
-    <View style={{height: '70%'}}>
+    <View style={{height: '69%'}}>
       <FlatList 
           data={data}
           renderItem={({item, index}) => ( <Card key={index} id={item.id} title={item.title} feat={item.feat} uri={item.vidUri}/> )}

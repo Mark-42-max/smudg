@@ -90,7 +90,7 @@ export default function Tuts({id, title, influencer, uri, desig, price}) {
             <View style={styles.options}> 
             <TouchableOpacity>
                 <View style={styles.viewButton}>
-                    <Text style={tw`p-1`}>
+                    <Text>
                         VIEW DETAILS
                     </Text>
                 </View>

@@ -37,7 +37,6 @@ export default StyleSheet.create({
     },
 
     hashtag: {
-        marginLeft: 5,
         color: '#B5B5B5',
     },
 
@@ -67,8 +66,9 @@ export default StyleSheet.create({
     },
     options: {
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        justifyContent: 'space-between',
         alignItems: 'center',
+        width: '90%'
     },
     saveButton: {
 
@@ -77,8 +77,8 @@ export default StyleSheet.create({
 
     },
     btnOutlineBlock: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         borderColor: "#B5B5B5",
         borderWidth: 1,
         borderRadius: 50,
@@ -87,8 +87,8 @@ export default StyleSheet.create({
         alignItems: "center",
     },
     btnOutlineTransparent: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         borderColor: "#000",
         borderWidth: 1,
         borderRadius: 50,
@@ -98,8 +98,8 @@ export default StyleSheet.create({
         backgroundColor: "#000"
     },
     menubtnOutline: {
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         borderRadius: 50,
         alignItems: "center",
         justifyContent: "center",
@@ -127,14 +127,13 @@ export default StyleSheet.create({
     },
 
     viewButton: {
-        width: 120,
-        height: 40,
         borderColor: "#B5B5B5",
         borderWidth: 1,
         borderRadius: 32,
         flexDirection: "row",
         justifyContent: "space-evenly",
         alignItems: "center",
-        padding: 3
+        paddingHorizontal: 7,
+        paddingVertical: 5
     }
 })

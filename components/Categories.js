@@ -44,7 +44,7 @@ export default function Categories({item}) {
         refRBSheet.current.close()
     }
   return (
-    <View style={[tw`my-4`, styles.categories]}>
+    <View style={[tw`my-4 ml-8`, styles.categories]}>
 
     <TouchableOpacity onPress={() => 
         {
@@ -53,32 +53,31 @@ export default function Categories({item}) {
         }}>
         <View style={styles.categoryButton}>
             <CategoryIcon />
-            <Text>Category: </Text>
-            <Text style={{fontWeight: 'bold'}}>{category}</Text>
+            <Text style={tw`ml-2`}>Category: <Text style={{fontWeight: 'bold'}}>{category}</Text></Text>
+            
         </View>
     </TouchableOpacity>
 
-    {item !== "Tutorials" && <TouchableOpacity onPress={() => 
+    {item !== "Tutorials" && <TouchableOpacity style={tw`ml-2`} onPress={() => 
         {
             setIsOpen('Brand');
             refRBSheet.current.open()
         }}>
         <View style={styles.categoryButton}>
             <CategoryIcon />
-            <Text>Brand: </Text>
-            <Text style={{fontWeight: 'bold'}}>{brand}</Text>
+            <Text style={tw`ml-2`}>Brand: <Text style={{fontWeight: 'bold'}}>{brand}</Text></Text>
         </View>
     </TouchableOpacity>}
 
-    {item === "Tutorials" && <TouchableOpacity onPress={() => 
+    {item === "Tutorials" && <TouchableOpacity style={tw`ml-2`} onPress={() => 
         {
             setIsOpen('Type');
             refRBSheet.current.open()
         }}>
         <View style={styles.categoryButton}>
             <CategoryIcon />
-            <Text>Type: </Text>
-            <Text style={{fontWeight: 'bold'}}>{type}</Text>
+            <Text style={tw`ml-2`}>Type: <Text style={{fontWeight: 'bold'}}>{type}</Text></Text>
+            
         </View>
     </TouchableOpacity>}
 
@@ -114,12 +113,9 @@ export default function Categories({item}) {
 
 const styles = StyleSheet.create({
     categories: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        height: 30, 
         backgroundColor: '#F9F9F9',
         flexDirection: 'row',
-        justifyContent: 'space-evenly',
+        justifyContent: 'flex-start',
         alignItems: 'center',
     },
     categoryButton: {
@@ -128,9 +124,9 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderWidth: 1,
         borderColor: '#8F8F8F',
-        padding: 10,
         borderRadius: 32,
-        zIndex: 1,
+        paddingHorizontal: 10,
+        paddingVertical: 7,
     },
 
     modal: {
