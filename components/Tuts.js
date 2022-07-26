@@ -10,7 +10,7 @@ import { StateContext } from '../Context/StateContext';
 import RBSheet from "react-native-raw-bottom-sheet";
 import RazorpayModal from './RazorpayModal';
 
-export default function Tuts({id, title, influencer, uri, desig, price}) {
+export default function Tuts({id, title, influencer, uri, desig, price, vidLen}) {
     const {checkSaveTuts, list} = useContext(StateContext);
     const [isSavedTuts, setIsSavedTuts] = checkSaveTuts;
     const [savedList, setSavedList] = list;
@@ -59,6 +59,9 @@ export default function Tuts({id, title, influencer, uri, desig, price}) {
                             <Text style={{ color: '#fff'}}>₹{price}</Text>
                         </View>}
                     </TouchableOpacity>
+                </View>
+                <View style={styles.duration}>
+                        <Text style={styles.durationText}>{vidLen}s</Text>
                 </View>
             </View>
         </View>

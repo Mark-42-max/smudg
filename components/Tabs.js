@@ -15,25 +15,29 @@ export default function Tabs() {
       id: 11,
       title: "How to apply this face cream the right way",
       feat: "Nykaa",
-      vidUri: "video link to be stored here"
+      vidUri: "video link to be stored here",
+      duration: 40
     },
     {
       id: 12,
       title: "How to apply this face cream the right way",
       feat: "Nykaa",
-      vidUri: "video link to be stored here"
+      vidUri: "video link to be stored here",
+      duration: 40
     },
     {
       id: 13,
       title: "How to apply this face cream the right way",
       feat: "Nykaa",
-      vidUri: "video link to be stored here"
+      vidUri: "video link to be stored here",
+      duration: 40
     },
     {
       id: 14,
       title: "How to apply this face cream the right way",
       feat: "Nykaa",
-      vidUri: "video link to be stored here"
+      vidUri: "video link to be stored here",
+      duration: 40
     }
   ];
 
@@ -44,7 +48,8 @@ export default function Tabs() {
       influencer: "Deepika Padukone",
       designation: "Fashion Stylist",
       price: 499,
-      vidUri: "video link to be stored here"
+      vidUri: "video link to be stored here",
+      duration: 40
     },
 
     {
@@ -53,7 +58,8 @@ export default function Tabs() {
       influencer: "Smudg",
       designation: "Recommended for you",
       price: 0,
-      vidUri: "video link to be stored here"
+      vidUri: "video link to be stored here",
+      duration: 40
     },
 
     {
@@ -62,7 +68,8 @@ export default function Tabs() {
       influencer: "Deepika Padukone",
       designation: "Fashion Stylist",
       price: 499,
-      vidUri: "video link to be stored here"
+      vidUri: "video link to be stored here",
+      duration: 40
     },
 
     {
@@ -71,7 +78,8 @@ export default function Tabs() {
       influencer: "Deepika Padukone",
       designation: "Fashion Stylist",
       price: 666,
-      vidUri: "video link to be stored here"
+      vidUri: "video link to be stored here",
+      duration: 40
     }
   ]
 
@@ -114,9 +122,9 @@ export default function Tabs() {
 
       {/* Tab Content */}
       <View>
-        {activeTab === 'Snippets' && <Cards data={dummy}/>}
-        {activeTab === 'Tutorials' && <Tutorial data={tutorial}/>}
-        {activeTab === 'Saved' && <Saved snippet={dummy} tutorial={tutorial}/>}
+        {activeTab === 'Snippets' && <Cards data={dummy} height="72%"/>}
+        {activeTab === 'Tutorials' && <Tutorial data={tutorial} height="72%"/>}
+        {activeTab === 'Saved' && <Saved snippet={dummy} tutorial={tutorial} height="72%"/>}
       </View>
     </View>
   );
@@ -126,7 +134,7 @@ const styles = StyleSheet.create({
   tabs: {
     borderColor: "#E6E6E6",
     borderWidth: 1,
-    marginTop: "10%",
+    marginTop: 20,
   },
 
   tabContainer: {

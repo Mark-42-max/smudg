@@ -9,7 +9,7 @@ export default StyleSheet.create({
         borderBottomWidth: 1,
     },
     left: {
-        width: '50%',
+        width: '40%',
         alignItems: 'center',
         justifyContent: 'center',
     },
@@ -25,7 +25,7 @@ export default StyleSheet.create({
         alignItems: 'center',
     },
     right: {
-        width: "50%",
+        width: "60%",
         flexDirection: 'column',
         justifyContent: 'space-evenly',
     },
@@ -65,7 +65,7 @@ export default StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
-        width: '80%'
+        width: '90%'
     },
     saveButton: {
 
@@ -108,10 +108,21 @@ export default StyleSheet.create({
 
     playbtn: {
         backgroundColor: "#000",
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 50
+    },
+
+    duration: {
+        position: "absolute",
+        top: 10,
+        left: 10,
+    },
+
+    durationText: {
+        color: "#B5B5B5",
+        fontSize: 12,
     }
 })

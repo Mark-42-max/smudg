@@ -8,7 +8,7 @@ import Play from '../assets/svg/Play';
 import styles from './Styles/SnippetList'
 import { TouchableOpacity} from 'react-native';
 
-export default function Card({id, title, feat, uri}) {
+export default function Card({id, title, feat, uri, vidLen}) {
     const {checkSaveSnippet, list} = useContext(StateContext);
     const [isSavedSnippet, setIsSavedSnippet] = checkSaveSnippet;
     const [savedList, setSavedList] = list;
@@ -49,6 +49,9 @@ export default function Card({id, title, feat, uri}) {
                             <Play />
                         </View>
                     </TouchableOpacity>
+                </View>
+                <View style={styles.duration}>
+                    <Text style={styles.durationText}>{vidLen}s</Text>
                 </View>
             </View>
         </View>

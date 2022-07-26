@@ -119,8 +119,8 @@ export default StyleSheet.create({
 
     playbtn: {
         backgroundColor: "#000",
-        width: 40,
-        height: 40,
+        width: 35,
+        height: 35,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: 50
@@ -135,5 +135,16 @@ export default StyleSheet.create({
         alignItems: "center",
         paddingHorizontal: 7,
         paddingVertical: 5
+    },
+
+    duration: {
+        position: "absolute",
+        top: 10,
+        left: 10,
+    },
+
+    durationText: {
+        color: "#B5B5B5",
+        fontSize: 12,
     }
 })

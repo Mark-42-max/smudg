@@ -6,7 +6,7 @@ import {useContext} from 'react';
 import { StateContext } from '../Context/StateContext';
 import  tw  from 'tailwind-react-native-classnames';
 
-export default function Saved({snippet, tutorial}) {
+export default function Saved({snippet, tutorial, height}) {
 
     const {checkSaveSnippet, checkSaveTuts} = useContext(StateContext);
     const [isSavedSnippet] = checkSaveSnippet;
@@ -39,17 +39,17 @@ export default function Saved({snippet, tutorial}) {
 
         {display.length == 0 ? <Text style={[tw`py-10`, {textAlign: 'center', fontSize: 20, color: '#B5B5B5', flexWrap: 'wrap'}]}>All you saved videos and purchased videos will feature here.</Text>
         :
-        <View style={{justifyContent: 'center', alignItems: 'center', height: '69%'}}>
+        <View style={{justifyContent: 'center', alignItems: 'center', height: {height}}}>
            <FlatList 
             data={display}
             renderItem={({item, index}) => { 
             
               if(isSavedSnippet.includes(item.id)){
-                i++;
+
             return <Card key={item.id} id={item.id} title={item.title} feat={item.feat} uri={item.vidUri}/>}
 
             if(isSavedTuts.includes(item.id)){
-              j++;
+         
               return <Tuts key={item.id} id={item.id} title={item.title} influencer={item.influencer} uri={item.vidUri} desig={item.designation} price={item.price}/>}
         
             }}

@@ -44,7 +44,7 @@ export default function Categories({item}) {
         refRBSheet.current.close()
     }
   return (
-    <View style={[tw`my-4 ml-8`, styles.categories]}>
+    <View style={[tw`my-2 ml-8`, styles.categories]}>
 
     <TouchableOpacity onPress={() => 
         {
