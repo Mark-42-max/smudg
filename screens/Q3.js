@@ -2,9 +2,9 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
   TouchableOpacity,
   FlatList,
+  ImageBackground,
 } from "react-native";
 import React, { useState } from "react";
 import NavHeader from "../components/NavHeader";
@@ -12,26 +12,27 @@ import tw from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { setQ3 } from "../slices/optionSlice";
+import bg1 from "../assets/bg1.png";
 
 const data = [
   {
     id: "1",
-    title: "Everyday (don't judge me)",
+    title: "everyday (don't judge me)",
     active: false,
   },
   {
     id: "2",
-    title: "Once a week",
+    title: "once a week",
     active: false,
   },
   {
     id: "3",
-    title: "Once a month",
+    title: "once a month",
     active: false,
   },
   {
     id: "4",
-    title: "Rarely (Natural beauty FTW)",
+    title: "rarely(natural beauty FTW)",
     active: false,
   },
 ];
@@ -41,31 +42,24 @@ const Q3 = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   return (
-    <SafeAreaView>
+    <ImageBackground source={bg1} resizeMode="cover">
       <NavHeader page={3} />
       <Text style={styles.text1}>
-        How often do you purchase beauty products?
+        what’s your spend on these products like?
       </Text>
-      <Text
-        style={[
-          tw`text-base mt-3 mx-auto`,
-          { fontFamily: "Spartan_400Regular", color: "#8F8F8F" },
-        ]}
-      >
-        You can select multiple options
+      <Text style={styles.text2}>
+        let’s make this investment effective and worth it for you.
       </Text>
-      <View style={[tw`pt-20`]}>
+      <View style={{ marginTop: 60 }}>
         <FlatList
           keyExtractor={(item) => item.id}
           data={op}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={[
-                tw`items-center border border-gray-300 rounded-xl mx-auto mt-4 flex-row pl-5`,
+                styles.choices,
                 {
-                  width: 300,
-                  height: 70,
-                  backgroundColor: item.active === true ? "#ffecf4" : "white",
+                  backgroundColor: item.id === op?.id ? "#ffecf4" : "white",
                 },
               ]}
               onPress={() => {
@@ -81,21 +75,13 @@ const Q3 = () => {
                 );
               }}
             >
-              <View
-                style={{
-                  width: 32,
-                  height: 32,
-                  backgroundColor: item.active === true ? "#EC0C77" : "#DFDFDF",
-                }}
-              ></View>
               <Text
-                style={[
-                  tw`text-base ml-3`,
-                  {
-                    fontFamily: "Spartan_600SemiBold",
-                    color: item.active === true ? "#EC0C77" : "black",
-                  },
-                ]}
+                style={{
+                  fontFamily: "Spartan_600SemiBold",
+                  color: item.active === true ? "#EC0C77" : "black",
+                  fontSize: 16,
+                  lineHeight: 22.4,
+                }}
               >
                 {item.title}
               </Text>
@@ -105,24 +91,22 @@ const Q3 = () => {
       </View>
       <TouchableOpacity
         style={[
-          tw`items-center justify-center rounded-xl mt-6 mx-auto`,
-          { width: 300, height: 70, backgroundColor: "#EC0C77" },
+          styles.next,
+          {
+            backgroundColor:
+              op.filter((el) => el.active === true).length >= 1
+                ? "black"
+                : "#AEAFAF",
+          },
         ]}
         onPress={() => {
           dispatch(setQ3({ q3: op.filter((el) => el.active === true) }));
           navigation.navigate("Q4");
         }}
       >
-        <Text
-          style={[
-            tw`text-base text-white`,
-            { fontFamily: "Spartan_600SemiBold" },
-          ]}
-        >
-          NEXT
-        </Text>
+        <Text style={styles.text}>Next</Text>
       </TouchableOpacity>
-    </SafeAreaView>
+    </ImageBackground>
   );
 };
 
@@ -130,11 +114,45 @@ export default Q3;
 
 const styles = StyleSheet.create({
   text1: {
-    fontFamily: "Spartan_400Regular",
-    marginTop: 40,
-    marginLeft: "auto",
-    marginRight: "auto",
+    fontFamily: "Spartan_500Medium",
+    marginTop: 70,
+    marginHorizontal: 30,
+    textAlign: "center",
     fontSize: 24,
     lineHeight: 32,
+  },
+  text2: {
+    marginTop: 30,
+    marginHorizontal: 40,
+    fontSize: 18,
+    lineHeight: 25.2,
+    fontFamily: "Spartan_400Regular",
+    textAlign: "center",
+  },
+  choices: {
+    width: 318,
+    height: 60,
+    justifyContent: "center",
+    paddingLeft: 27,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 16,
+    borderRadius: 500,
+  },
+  next: {
+    marginTop: 30,
+    width: 320,
+    height: 60,
+    marginLeft: "auto",
+    marginRight: "auto",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 30,
+  },
+  text: {
+    color: "white",
+    fontFamily: "Spartan_600SemiBold",
+    fontSize: 18,
+    lineHeight: 21.6,
   },
 });
