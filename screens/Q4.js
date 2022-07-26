@@ -73,14 +73,14 @@ const Q4 = () => {
     <SafeAreaView>
       <NavHeader page={4} />
       <Text
-        style={[tw`text-2xl mt-7 mx-10`, { fontFamily: "Inter_400Regular" }]}
+        style={[tw`text-2xl mt-7 mx-10`, { fontFamily: "Spartan_400Regular" }]}
       >
         What kind of products are you looking for?
       </Text>
       <Text
         style={[
           tw`text-base mt-3 mx-auto`,
-          { fontFamily: "Inter_400Regular", color: "#8F8F8F" },
+          { fontFamily: "Spartan_400Regular", color: "#8F8F8F" },
         ]}
       >
         Select atleast two options
@@ -111,7 +111,7 @@ const Q4 = () => {
             <Text
               style={{
                 color: item.active === true ? "#EC0C77" : "black",
-                fontFamily: "Inter_600SemiBold",
+                fontFamily: "Spartan_600SemiBold",
               }}
             >
               {item.title}
@@ -132,7 +132,7 @@ const Q4 = () => {
         <Text
           style={[
             tw`text-base text-white`,
-            { fontFamily: "Inter_600SemiBold" },
+            { fontFamily: "Spartan_600SemiBold" },
           ]}
         >
           NEXT

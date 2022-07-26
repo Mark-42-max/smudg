@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
     marginHorizontal: 30,
     alignItems: "center",
-    marginTop: 40,
+    marginTop: 60,
   },
   login: {
     backgroundColor: "#C3FA4F",

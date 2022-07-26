@@ -43,7 +43,7 @@ const Q2 = () => {
       <Text
         style={[
           tw`text-base mt-3 mx-auto`,
-          { fontFamily: "Inter_400Regular", color: "#8F8F8F" },
+          { fontFamily: "Spartan_400Regular", color: "#8F8F8F" },
         ]}
       >
         One line for further info, can be removed
@@ -79,7 +79,7 @@ const Q2 = () => {
                 style={[
                   tw`text-base ml-5`,
                   {
-                    fontFamily: "Inter_600SemiBold",
+                    fontFamily: "Spartan_600SemiBold",
                     color: item.id === op?.id ? "#EC0C77" : "black",
                   },
                 ]}
@@ -98,7 +98,7 @@ export default Q2;
 
 const styles = StyleSheet.create({
   text1: {
-    fontFamily: "Inter_400Regular",
+    fontFamily: "Spartan_400Regular",
     marginTop: 80,
     marginLeft: "auto",
     marginRight: "auto",

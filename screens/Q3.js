@@ -49,7 +49,7 @@ const Q3 = () => {
       <Text
         style={[
           tw`text-base mt-3 mx-auto`,
-          { fontFamily: "Inter_400Regular", color: "#8F8F8F" },
+          { fontFamily: "Spartan_400Regular", color: "#8F8F8F" },
         ]}
       >
         You can select multiple options
@@ -92,7 +92,7 @@ const Q3 = () => {
                 style={[
                   tw`text-base ml-3`,
                   {
-                    fontFamily: "Inter_600SemiBold",
+                    fontFamily: "Spartan_600SemiBold",
                     color: item.active === true ? "#EC0C77" : "black",
                   },
                 ]}
@@ -116,7 +116,7 @@ const Q3 = () => {
         <Text
           style={[
             tw`text-base text-white`,
-            { fontFamily: "Inter_600SemiBold" },
+            { fontFamily: "Spartan_600SemiBold" },
           ]}
         >
           NEXT
@@ -130,7 +130,7 @@ export default Q3;
 
 const styles = StyleSheet.create({
   text1: {
-    fontFamily: "Inter_400Regular",
+    fontFamily: "Spartan_400Regular",
     marginTop: 40,
     marginLeft: "auto",
     marginRight: "auto",

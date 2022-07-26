@@ -11,8 +11,10 @@ import fb from "../assets/fb.png";
 import google from "../assets/google.png";
 import apple from "../assets/apple.png";
 import Header from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 const SplashScreen = () => {
+  const navigation = useNavigation();
   return (
     <View
       style={{
@@ -38,7 +40,10 @@ const SplashScreen = () => {
       <Text style={styles.continue}>or continue with your</Text>
       <View style={styles.bottomCont}>
         <TextInput placeholder="Email address" style={styles.input} />
-        <TouchableOpacity style={styles.verify}>
+        <TouchableOpacity
+          style={styles.verify}
+          onPress={() => navigation.navigate("Welcome")}
+        >
           <Text style={styles.btnText}>Verify</Text>
         </TouchableOpacity>
       </View>
@@ -48,7 +53,6 @@ const SplashScreen = () => {
           <Text style={styles.bottomText}> Sign in →</Text>
         </TouchableOpacity>
       </View>
-      {/* </LinearGradient> */}
     </View>
   );
 };
@@ -85,7 +89,6 @@ const styles = StyleSheet.create({
     lineHeight: 16.8,
     fontFamily: "Spartan_500Medium",
   },
-
   bottomCont: {
     marginHorizontal: 30,
   },
