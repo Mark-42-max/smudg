@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { StyleSheet, Text, View, Image } from "react-native";
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
 import Header from "../components/Header";
 import Swiper from "react-native-swiper";
-import Q1 from "./Q1";
+import QuestionIntro from "./QuestionIntro";
 import swipeup from "../assets/swipeup.png";
 
 const WelcomeScreen = () => {
@@ -16,9 +16,9 @@ const WelcomeScreen = () => {
           "radial-gradient(50% 50% at 50% 50%, rgba(196, 63, 83, 0.7) 0%, rgba(159, 140, 246, 0) 100%)",
       }}
     >
-      <Header />
       <Swiper showsPagination={false} loop={false}>
         <View>
+          <Header />
           <Text style={styles.wel}>
             tired of products that make you feel icky?
           </Text>
@@ -28,6 +28,7 @@ const WelcomeScreen = () => {
           </Text>
         </View>
         <View>
+          <Header />
           <Text style={styles.wel}>hey there stranger, i am smudg. </Text>
           <Text style={styles.create}>an all-knowing intelligent being.</Text>
           <Text style={styles.job}>
@@ -37,6 +38,7 @@ const WelcomeScreen = () => {
         </View>
         <Swiper showsPagination={false} loop={false} horizontal={false}>
           <View>
+            <Header />
             <View style={{ marginTop: 50 }}>
               <Text style={styles.job}>
                 over ten thousnd new skincare products are launched every day!
@@ -52,7 +54,7 @@ const WelcomeScreen = () => {
               <Image source={swipeup} />
             </View>
           </View>
-          <Q1 />
+          <QuestionIntro />
         </Swiper>
       </Swiper>
     </View>
