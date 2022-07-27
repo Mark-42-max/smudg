@@ -25,6 +25,7 @@ import Learn from "./screens/Learn";
 import Verify from "./screens/Verify";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import Videos from "./screens/Videos";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -50,6 +51,11 @@ export default function App() {
             <Stack.Screen
                 name="Learn"
                 component={Learn}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Videos"
+                component={Videos}
                 options={{ headerShown: false }}
               />
               <Stack.Screen

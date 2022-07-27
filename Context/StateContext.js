@@ -13,6 +13,10 @@ export const StateProviders = (props) => {
     const [brand, setBrand] = useState('All');
     const [type, setType] = useState('All');
 
+    //for video section
+    const [isLiked, setIsLiked] = useState(false);
+    const [isCommented, setIsCommented] = useState(false);
+
     return (
         <StateContext.Provider value={{ 
             checkSaveSnippet: [isSavedSnippet, setIsSavedSnippet] , 
@@ -20,7 +24,9 @@ export const StateProviders = (props) => {
             list: [savedList, setSavedList],
             categories: [category, setCategory],
             brands: [brand, setBrand],
-            types: [type, setType]
+            types: [type, setType],
+            likes: [isLiked, setIsLiked],
+            comments: [isCommented, setIsCommented]
         }}>
             {props.children}
         </StateContext.Provider>

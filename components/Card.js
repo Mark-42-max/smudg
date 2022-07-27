@@ -6,6 +6,7 @@ import Bookmark from '../assets/svg/Bookmark';
 import Hamburger from '../assets/svg/Hamburger';
 import Play from '../assets/svg/Play';
 import styles from './Styles/SnippetList'
+import { useNavigation } from "@react-navigation/native";
 import { TouchableOpacity} from 'react-native';
 
 export default function Card({id, title, feat, uri, vidLen}) {
@@ -13,6 +14,7 @@ export default function Card({id, title, feat, uri, vidLen}) {
     const [isSavedSnippet, setIsSavedSnippet] = checkSaveSnippet;
     const [savedList, setSavedList] = list;
     const [includeId, setIncludeId] = useState(false);
+    const navigation = useNavigation();
 
     useEffect(() => {
         if(isSavedSnippet) {
@@ -44,7 +46,7 @@ export default function Card({id, title, feat, uri, vidLen}) {
         <View style={styles.left}>
             <View style={styles.video}>
                 <View style={styles.playButton}>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Videos')}>
                         <View style={styles.playbtn}>
                             <Play />
                         </View>

@@ -9,6 +9,7 @@ import { TouchableOpacity} from 'react-native';
 import { StateContext } from '../Context/StateContext';
 import RBSheet from "react-native-raw-bottom-sheet";
 import RazorpayModal from './RazorpayModal';
+import { useNavigation } from "@react-navigation/native";
 
 export default function Tuts({id, title, influencer, uri, desig, price, vidLen}) {
     const {checkSaveTuts, list} = useContext(StateContext);
@@ -16,6 +17,7 @@ export default function Tuts({id, title, influencer, uri, desig, price, vidLen})
     const [savedList, setSavedList] = list;
     const [includeId, setIncludeId] = useState(false);
     const refRBSheet = useRef();
+    const navigation = useNavigation();
 
     const Razorpay = () => {
         refRBSheet.current.open();
@@ -51,7 +53,7 @@ export default function Tuts({id, title, influencer, uri, desig, price, vidLen})
         <View style={styles.left}>
             <View style={styles.video}>
                 <View style={styles.playButton}>
-                    <TouchableOpacity onPress={() => Razorpay()}>
+                    <TouchableOpacity onPress={() => price == 0 ?navigation.navigate('Videos') : Razorpay()}>
                         {price == 0 ? <View style={styles.playbtn}>
                             <Play />
                         </View> : <View style={styles.playPricebtn}>
@@ -91,7 +93,7 @@ export default function Tuts({id, title, influencer, uri, desig, price, vidLen})
                 </View>
             </View>
             <View style={styles.options}> 
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => price == 0 ?navigation.navigate('Videos') :Razorpay()}>
                 <View style={styles.viewButton}>
                     <Text>
                         VIEW DETAILS
