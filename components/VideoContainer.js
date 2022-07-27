@@ -8,9 +8,11 @@ import Comment from "../assets/svg/Comment";
 import { StateContext } from "../Context/StateContext";
 
 const VideoContainer = () => {
-    const {likes, comments} = useContext(StateContext);
+    const {likes, comments, likesCount, commentsCount} = useContext(StateContext);
     const [isLiked, setIsLiked] = likes;
     const [isCommented, setIsCommented] =comments;
+    const [likedCounts, setLikedCounts] = likesCount;
+    const [commentCount, setCommentCount] = commentsCount;
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerLayer}>
@@ -44,15 +46,31 @@ const VideoContainer = () => {
         </View>
 
         <View style={styles.interactions}>
-            <TouchableOpacity onPress={() => setIsLiked(isLiked => !isLiked)}>
+            <View>
+            <TouchableOpacity onPress={() => {setIsLiked(isLiked => !isLiked); setLikedCounts(likedCounts => {
+               if(isLiked) {
+                return likedCounts - 1
+               }else{
+                return likedCounts + 1
+               }
+            })}}>
                 <Like isClicked={isLiked}/>
-                <Text style={{textAlign: 'center'}}>3</Text>
             </TouchableOpacity>
+            <Text style={{textAlign: 'center'}}>{likedCounts}</Text>
+            </View>
                 
-            <TouchableOpacity onPress={() => setIsCommented(isCommented => !isCommented)}>
+            <View>
+            <TouchableOpacity onPress={() => {setIsCommented(isCommented => !isCommented); setCommentCount(commentCount => {
+                if(isCommented){
+                    return commentCount - 1
+                }else{
+                    return commentCount + 1
+                }
+                })}}>
                 <Comment isClicked={isCommented}/>
-                <Text style={{textAlign: 'center'}}>3</Text>
             </TouchableOpacity>
+            <Text style={{textAlign: 'center'}}>{commentCount}</Text>
+            </View>
         </View>
       </View>
     </SafeAreaView>
@@ -91,7 +109,7 @@ const styles = StyleSheet.create({
     containerLayer: {
       height: "100%",
       width: "100%",
-      paddingVertical: 40,
+      paddingVertical: 100,
       paddingHorizontal: 30,
     },
   

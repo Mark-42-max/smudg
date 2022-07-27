@@ -16,6 +16,8 @@ export const StateProviders = (props) => {
     //for video section
     const [isLiked, setIsLiked] = useState(false);
     const [isCommented, setIsCommented] = useState(false);
+    const [likedCount, setLikedCount] = useState(0);
+    const [commentCount, setCommentCount] = useState(0);
 
     return (
         <StateContext.Provider value={{ 
@@ -26,7 +28,9 @@ export const StateProviders = (props) => {
             brands: [brand, setBrand],
             types: [type, setType],
             likes: [isLiked, setIsLiked],
-            comments: [isCommented, setIsCommented]
+            comments: [isCommented, setIsCommented],
+            likesCount: [likedCount, setLikedCount],
+            commentsCount: [commentCount, setCommentCount]
         }}>
             {props.children}
         </StateContext.Provider>
