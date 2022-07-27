@@ -34,19 +34,19 @@ const FaceProfile = () => {
         <Image source={face} />
         <Image source={arr} />
         <View style={[tw`p-2 rounded-xl`, { backgroundColor: "#008525" }]}>
-          <Text style={[tw`text-white`, { fontFamily: "Inter_700Bold" }]}>
+          <Text style={[tw`text-white`, { fontFamily: "Spartan_700Bold" }]}>
             GREAT MATCH
           </Text>
         </View>
       </View>
       <View style={tw`mx-5 mt-24`}>
-        <Text style={[tw`text-4xl`, { fontFamily: "Inter_400Regular" }]}>
+        <Text style={[tw`text-4xl`, { fontFamily: "Spartan_400Regular" }]}>
           Let’s see how these match with you!
         </Text>
         <Text
           style={[
             tw`mt-2 text-lg`,
-            { color: "#464646", fontFamily: "Inter_400Regular" },
+            { color: "#464646", fontFamily: "Spartan_400Regular" },
           ]}
         >
           Quisque ac malesuada odio, quis iaculis lorem. Maecenas placerat vel
@@ -65,7 +65,7 @@ const FaceProfile = () => {
             <Text
               style={[
                 tw`text-white text-xl`,
-                { fontFamily: "Inter_600SemiBold" },
+                { fontFamily: "Spartan_600SemiBold" },
               ]}
             >
               ANALYSE MY PROFILE
