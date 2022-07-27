@@ -1,11 +1,13 @@
-import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity } from "react-native";
-import React, {useContext} from "react";
+import { SafeAreaView, StyleSheet, Text, View, TouchableOpacity, Image, FlatList } from "react-native";
+import React, {useContext, useRef, useState} from "react";
 import tw from "tailwind-react-native-classnames";
 import LeftButton from './../assets/svg/LeftButton';
 import RightButton from './../assets/svg/RightButton';
 import Like from './../assets/svg/Like';
 import Comment from "../assets/svg/Comment";
 import { StateContext } from "../Context/StateContext";
+import { useNavigation } from '@react-navigation/native';
+import { Video, AVPlaybackStatus } from 'expo-av';
 
 const VideoContainer = () => {
     const {likes, comments, likesCount, commentsCount} = useContext(StateContext);
@@ -13,11 +15,20 @@ const VideoContainer = () => {
     const [isCommented, setIsCommented] =comments;
     const [likedCounts, setLikedCounts] = likesCount;
     const [commentCount, setCommentCount] = commentsCount;
+    const navigation = useNavigation();
+    var i = 0;
+
+    const newId = () => {return i++}
+    const videoRef = useRef(null);
+    const [status, setStatus] = React.useState({});
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.containerLayer}>
         <View style={styles.heading}>
-          <Text>Aliquam dignissim a tellus eu egestas.</Text>
+          <Text style={{fontSize: 18}}>Aliquam dignissim a tellus eu egestas.</Text>
+          <TouchableOpacity onPress={() => navigation.goBack()}>
+            <Image source={require('../assets/cross.png')} />
+          </TouchableOpacity>
         </View>
         <View style={[tw`mt-2`, styles.vidHead]}>
           <View style={styles.footLeft}>
@@ -37,7 +48,38 @@ const VideoContainer = () => {
             </TouchableOpacity>
 
             <View style={styles.video}>
-
+                <Video
+                    ref={videoRef}
+                    style={styles.videoElement}
+                    source={{
+                        //dummy uri: http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4
+                    uri: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4',
+                    }}
+                    useNativeControls
+                    resizeMode="contain"
+                    isLooping
+                    onPlaybackStatusUpdate={status => setStatus(() => status)}
+                />
+                {/* <FlatList
+                    horizontal
+                    pagingEnabled={true}
+                    showsHorizontalScrollIndicator={false}
+                    legacyImplementation={false}
+                    data={['http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4']}
+                    renderItem={({item, index}) => <Video
+                    key={index}
+                    ref={videoRef}
+                    style={styles.videoElement}
+                    source={{
+                    uri: item,
+                    }}
+                    useNativeControls
+                    resizeMode="contain"
+                    isLooping
+                    onPlaybackStatusUpdate={status => setStatus(() => status)}
+                />}
+                    style={{width: '80%', height:'100%'}}
+                /> */}
             </View>
 
             <TouchableOpacity>
@@ -86,6 +128,9 @@ const styles = StyleSheet.create({
   
     heading: {
       fontSize: 20,
+      flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
     },
     vidHead: {
       flexDirection: "row",
@@ -123,7 +168,16 @@ const styles = StyleSheet.create({
     video: {
       width: "80%",
       height: "80%",
+      justifyContent: "center",
+      alignItems: "center",
+      backgroundColor: "red",
     },
+
+    videoElement: {
+        width: "100%",
+        height: "100%",
+    },
+
     interactions: {
       flexDirection: "row",
       alignItems: "center",
