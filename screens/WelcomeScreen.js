@@ -12,8 +12,7 @@ const WelcomeScreen = () => {
     <View
       style={{
         flex: 1,
-        backgroundColor:
-          "radial-gradient(50% 50% at 50% 50%, rgba(196, 63, 83, 0.7) 0%, rgba(159, 140, 246, 0) 100%)",
+        backgroundColor: "#ff758f",
       }}
     >
       <Swiper showsPagination={false} loop={false}>

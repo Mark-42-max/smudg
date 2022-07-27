@@ -18,13 +18,6 @@ import { useNavigation } from "@react-navigation/native";
 const SplashScreen = () => {
   const navigation = useNavigation();
   return (
-    // <View
-    //   style={{
-    //     flex: 1,
-    //     backgroundColor:
-    //       "radial-gradient(50% 50% at 50% 50%, rgba(196, 63, 83, 0.7) 0%, rgba(159, 140, 246, 0) 100%)",
-    //   }}
-    // >
     <ImageBackground source={bg1} resizeMode="cover">
       <Header />
       <Text style={styles.wel}>welcome to smudg</Text>
@@ -52,12 +45,11 @@ const SplashScreen = () => {
       </View>
       <View style={styles.foot}>
         <Text style={styles.bottomText}>Signed up with phone?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Dashboard")}>
           <Text style={styles.bottomText}> Sign in →</Text>
         </TouchableOpacity>
       </View>
     </ImageBackground>
-    // </View>
   );
 };
 
