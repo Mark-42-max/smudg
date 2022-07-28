@@ -49,12 +49,12 @@ const Recommendation = () => {
         <TouchableOpacity
           style={styles.q1}
           onPress={() => {
-            console.log(name);
-            console.log(gender);
-            console.log(q1);
-            console.log(q2);
-            console.log(q3);
-            console.log(q4);
+            console.log(name.name);
+            console.log(gender.gender[0].title);
+            console.log(q1.q1.title);
+            console.log(q2.q2.title);
+            console.log(q3[0].q3);
+            console.log(q4[0].q4);
             navigation.navigate("Face");
           }}
         >
@@ -70,12 +70,12 @@ const Recommendation = () => {
         <TouchableOpacity
           style={styles.q2}
           onPress={() => {
-            console.log(name);
-            console.log(gender);
-            console.log(q1);
-            console.log(q2);
-            console.log(q3);
-            console.log(q4);
+            console.log(name.name);
+            console.log(gender.gender[0].title);
+            console.log(q1.q1.title);
+            console.log(q2.q2.title);
+            console.log(q3[0].q3);
+            console.log(q4[0].q4);
             navigation.navigate("Face");
           }}
         >
