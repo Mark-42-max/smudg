@@ -25,13 +25,10 @@ import Learn from "./screens/Learn";
 import Verify from "./screens/Verify";
 import { Provider } from "react-redux";
 import { store } from "./store";
-<<<<<<< HEAD
 import Videos from "./screens/Videos";
-=======
 import NewLogin from "./screens/NewLogin";
 import GoogleAuth from "./components/GoogleAuth";
 import SplashScreen from "./screens/SplashScreen";
->>>>>>> 2598f9372f5258f9b485adbf6aaa49b2b34aba38
 
 export default function App() {
   let [fontsLoaded] = useFonts({
