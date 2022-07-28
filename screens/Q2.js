@@ -48,7 +48,7 @@ const Q2 = () => {
       >
         One line for further info, can be removed
       </Text>
-      <View style={[tw`mt-44`]}>
+      <View style={[tw`mt-40`]}>
         <FlatList
           keyExtractor={(item) => item.id}
           data={data}
