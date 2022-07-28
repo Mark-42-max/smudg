@@ -27,6 +27,7 @@ import { store } from "./store";
 import NewLogin from "./screens/NewLogin";
 import GoogleAuth from "./components/GoogleAuth";
 import SplashScreen from "./screens/SplashScreen";
+import Dashboard from "./screens/Dashboard";
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -52,6 +53,11 @@ export default function App() {
               <Stack.Screen
                 name="Splash"
                 component={SplashScreen}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Welcome"
+                component={WelcomeScreen}
                 options={{ headerShown: false }}
               />
               <Stack.Screen
@@ -94,7 +100,6 @@ export default function App() {
                 component={Verify}
                 options={{ headerShown: false }}
               />
-              {/* Just testing the login API */}
               <Stack.Screen
                 name="NewLogin"
                 component={NewLogin}
@@ -103,6 +108,11 @@ export default function App() {
               <Stack.Screen
                 name="GoogleLogin"
                 component={GoogleAuth}
+                options={{ headerShown: false }}
+              />
+              <Stack.Screen
+                name="Dashboard"
+                component={Dashboard}
                 options={{ headerShown: false }}
               />
             </Stack.Navigator>

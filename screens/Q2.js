@@ -2,33 +2,33 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
   TouchableOpacity,
   FlatList,
+  ImageBackground,
 } from "react-native";
 import React, { useState } from "react";
-import tw from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import NavHeader from "../components/NavHeader";
 import { setQ2 } from "../slices/optionSlice";
+import bg1 from "../assets/bg1.png";
 
 const data = [
   {
     id: "1",
-    title: "Anti Acne",
+    title: "anti acne",
   },
   {
     id: "2",
-    title: "Dark Circles",
+    title: "dark circles",
   },
   {
     id: "3",
-    title: "Open Pores",
+    title: "open pores",
   },
   {
     id: "4",
-    title: "Something Else",
+    title: "something else",
   },
 ];
 
@@ -37,28 +37,20 @@ const Q2 = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   return (
-    <SafeAreaView>
+    <ImageBackground source={bg1} resizeMode="cover">
       <NavHeader page={2} />
-      <Text style={styles.text1}>What is your skincare goal?</Text>
-      <Text
-        style={[
-          tw`text-base mt-3 mx-auto`,
-          { fontFamily: "Inter_400Regular", color: "#8F8F8F" },
-        ]}
-      >
-        One line for further info, can be removed
+      <Text style={styles.text1}>
+        what about your skin concerns you or makes you a little conscious?
       </Text>
-      <View style={[tw`mt-40`]}>
+      <View style={{ marginTop: 175 }}>
         <FlatList
           keyExtractor={(item) => item.id}
           data={data}
           renderItem={({ item }) => (
             <TouchableOpacity
               style={[
-                tw`items-center border border-gray-300 rounded-xl mx-auto mt-4 flex-row pl-5`,
+                styles.choices,
                 {
-                  width: 300,
-                  height: 70,
                   backgroundColor: item.id === op?.id ? "#ffecf4" : "white",
                 },
               ]}
@@ -68,21 +60,13 @@ const Q2 = () => {
                 navigation.navigate("Q3");
               }}
             >
-              <View
-                style={{
-                  width: 32,
-                  height: 32,
-                  backgroundColor: item.id !== op?.id ? "#DFDFDF" : "#EC0C77",
-                }}
-              ></View>
               <Text
-                style={[
-                  tw`text-base ml-5`,
-                  {
-                    fontFamily: "Inter_600SemiBold",
-                    color: item.id === op?.id ? "#EC0C77" : "black",
-                  },
-                ]}
+                style={{
+                  fontFamily: "Spartan_600SemiBold",
+                  color: item.id === op?.id ? "#EC0C77" : "black",
+                  fontSize: 16,
+                  lineHeight: 22.4,
+                }}
               >
                 {item.title}
               </Text>
@@ -90,7 +74,7 @@ const Q2 = () => {
           )}
         />
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 };
 
@@ -98,11 +82,21 @@ export default Q2;
 
 const styles = StyleSheet.create({
   text1: {
-    fontFamily: "Inter_400Regular",
-    marginTop: 80,
-    marginLeft: "auto",
-    marginRight: "auto",
+    fontFamily: "Spartan_500Medium",
+    marginTop: 70,
+    marginHorizontal: 20,
+    textAlign: "center",
     fontSize: 24,
     lineHeight: 32,
+  },
+  choices: {
+    width: 318,
+    height: 60,
+    justifyContent: "center",
+    paddingLeft: 27,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 16,
+    borderRadius: 500,
   },
 });
