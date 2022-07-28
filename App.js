@@ -50,7 +50,7 @@ export default function App() {
       <SafeAreaView style={{ flex: 1 }}>
         <Provider store={store}>
           <NavigationContainer>
-            <Stack.Navigator initialRouteName="Splash">
+            <Stack.Navigator initialRouteName="Learn">
             <Stack.Screen
                 name="Learn"
                 component={Learn}
