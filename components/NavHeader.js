@@ -22,7 +22,7 @@ const NavHeader = ({ page }) => {
         <Text
           style={[
             tw`ml-24 text-lg`,
-            { fontFamily: "Inter_700Bold", color: "#8F8F8F" },
+            { fontFamily: "Spartan_700Bold", color: "black" },
           ]}
         >
           {page} OF 5

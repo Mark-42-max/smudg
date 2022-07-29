@@ -3,8 +3,8 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   name: "Aishwarya",
   gender: "",
-  q1: [],
-  q2: [],
+  q1: "",
+  q2: "",
   q3: [],
   q4: [],
 };
@@ -20,10 +20,10 @@ export const optionSlice = createSlice({
       state.gender = action.payload;
     },
     setQ1: (state, action) => {
-      state.q1 = [action.payload];
+      state.q1 = action.payload;
     },
     setQ2: (state, action) => {
-      state.q2 = [action.payload];
+      state.q2 = action.payload;
     },
     setQ3: (state, action) => {
       state.q3 = [...state.q3, action.payload];
