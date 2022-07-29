@@ -3,180 +3,194 @@ import {
   Text,
   View,
   SafeAreaView,
-  Image,
   TouchableOpacity,
-  KeyboardAvoidingView,
+  TextInput,
 } from "react-native";
 import React, { useState } from "react";
-import tw from "tailwind-react-native-classnames";
-import arrowDown from "../assets/arrowDown.png";
-import { Input } from "@rneui/themed";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { setGender, setName } from "../slices/optionSlice";
 
+const data = [
+  {
+    id: "1",
+    title: "Male",
+    active: false,
+  },
+  {
+    id: "2",
+    title: "Female",
+    active: false,
+  },
+  {
+    id: "3",
+    title: "naa, i dont wish to reveal",
+    active: false,
+  },
+];
+
 const QuestionIntro = () => {
-  const [isSelect1, setIsSelect1] = useState(false);
-  const [isSelect2, setIsSelect2] = useState(false);
-  const [isSelect3, setIsSelect3] = useState(false);
-  const [op1] = useState("Male");
-  const [op2] = useState("Female");
-  const [op3] = useState("Prefer not to say");
-  const [op, setOp] = useState("");
-  const [n, setN] = useState("Aishwarya");
+  const [op, setOp] = useState(data);
+  const [n, setN] = useState("aishwarya");
   const navigation = useNavigation();
   const dispatch = useDispatch();
   return (
-    <SafeAreaView style={[tw`flex-1`, { backgroundColor: "#E5E5E5" }]}>
-      <View style={[tw`items-center`, { paddingTop: 25 }]}>
-        <Image source={arrowDown} />
-      </View>
-      <Text
-        style={[
-          tw`text-4xl mx-auto pt-7`,
-          { width: 300, fontFamily: "Inter_400Regular" },
-        ]}
-      >
-        Let’s answer a few questions to get started
+    <SafeAreaView
+      style={{
+        flex: 1,
+        backgroundColor:
+          "radial-gradient(50% 50% at 50% 50%, #C43F53 0%, rgba(159, 140, 246, 0) 100%)",
+      }}
+    >
+      <Text style={styles.turn}>now your turn!! (don't be a stranger)</Text>
+      <Text style={styles.call}>what do i call you?</Text>
+      <TextInput
+        placeholder="first name, that's all"
+        style={styles.input}
+        placeholderTextColor="#939494"
+        value={n}
+        onChangeText={(text) => setN(text)}
+      />
+      <Text style={styles.identify}>
+        and, how do you identify yourself? (it helps me understand you better
+        but no pressure)
       </Text>
-      <View style={[tw`mx-auto mt-20`, { width: 280 }]}>
-        <Text
-          style={[
-            tw`text-gray-500 text-lg`,
-            { fontFamily: "Inter_400Regular" },
-          ]}
-        >
-          What should we call you?
-        </Text>
-        <Input
-          placeholder="Aishwarya"
-          style={[
-            tw`mt-5 font-bold text-2xl`,
-            { fontFamily: "Inter_400Regular" },
-          ]}
-          value={n}
-          onChangeText={(text) => setN(text)}
-        />
-        <Text
-          style={[
-            tw`text-gray-500 text-lg mt-14`,
-            { fontFamily: "Inter_400Regular" },
-          ]}
-        >
-          How do you identify yourself?
-        </Text>
-        <View style={tw`flex-row justify-between items-center mt-6`}>
+      <View style={styles.btnCont}>
+        {op.map((item) => (
           <TouchableOpacity
+            key={item.id}
             style={[
-              tw`items-center justify-center border border-gray-300 rounded-xl`,
+              styles.choices,
               {
-                width: 132,
-                height: 70,
-                backgroundColor: isSelect1 ? "#ffecf4" : "white",
+                backgroundColor:
+                  item.active === true ? "#f8ecef" : "transparent",
               },
             ]}
             onPress={() => {
-              setOp(op1);
-              setIsSelect1(!isSelect1);
-              setIsSelect2(false);
-              setIsSelect3(false);
+              setOp(
+                [...op].map((obj) => {
+                  if (obj?.id === item.id) {
+                    return {
+                      ...obj,
+                      active: !item.active,
+                    };
+                  } else return obj;
+                })
+              );
             }}
           >
             <Text
               style={[
-                tw`text-base`,
-                {
-                  fontFamily: "Inter_600SemiBold",
-                  color: isSelect1 ? "#EC0C77" : "black",
-                },
+                styles.btnText,
+                { color: item.active === true ? "#c53f52" : "white" },
               ]}
             >
-              {op1}
+              {item.title}
             </Text>
           </TouchableOpacity>
-          <TouchableOpacity
-            style={[
-              tw`items-center justify-center border border-gray-300 rounded-xl`,
-              {
-                width: 132,
-                height: 70,
-                backgroundColor: isSelect2 ? "#ffecf4" : "white",
-              },
-            ]}
-            onPress={() => {
-              setOp(op2);
-              setIsSelect2(!isSelect2);
-              setIsSelect1(false);
-              setIsSelect3(false);
-            }}
-          >
-            <Text
-              style={[
-                tw`text-base`,
-                {
-                  fontFamily: "Inter_600SemiBold",
-                  color: isSelect2 ? "#EC0C77" : "black",
-                },
-              ]}
-            >
-              {op2}
-            </Text>
-          </TouchableOpacity>
-        </View>
-        <TouchableOpacity
-          style={[
-            tw`items-center justify-center border border-gray-300 rounded-xl mt-3 mx-auto`,
-            {
-              width: 280,
-              height: 70,
-              backgroundColor: isSelect3 ? "#ffecf4" : "white",
-            },
-          ]}
-          onPress={() => {
-            setOp(op3);
-            setIsSelect3(!isSelect3);
-            setIsSelect1(false);
-            setIsSelect2(false);
-          }}
-        >
-          <Text
-            style={[
-              tw`text-base`,
-              {
-                fontFamily: "Inter_600SemiBold",
-                color: isSelect3 ? "#EC0C77" : "black",
-              },
-            ]}
-          >
-            {op3}
-          </Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-          style={[
-            tw`items-center justify-center rounded-xl mt-10 mx-auto`,
-            { width: 270, height: 70, backgroundColor: "#EC0C77" },
-          ]}
-          onPress={() => {
-            dispatch(setName({ name: n }));
-            dispatch(setGender({ gender: op }));
-            navigation.navigate("Q1");
-          }}
-          disabled={op === "" ? true : false}
-        >
-          <Text
-            style={[
-              tw`text-base text-white`,
-              { fontFamily: "Inter_600SemiBold" },
-            ]}
-          >
-            NEXT
-          </Text>
-        </TouchableOpacity>
+        ))}
       </View>
+      <TouchableOpacity
+        style={[
+          styles.next,
+          {
+            backgroundColor:
+              op.filter((el) => el.active === true).length === 1
+                ? "black"
+                : "#AEAFAF",
+          },
+        ]}
+        onPress={() => {
+          dispatch(setName({ name: n }));
+          dispatch(
+            setGender({ gender: op.filter((el) => el.active === true) })
+          );
+          navigation.navigate("Q1");
+        }}
+      >
+        <Text style={styles.text}>Next</Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 };
 
 export default QuestionIntro;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  turn: {
+    fontFamily: "Spartan_400Regular",
+    marginTop: 80,
+    textAlign: "center",
+    fontSize: 28,
+    marginHorizontal: 40,
+    lineHeight: 33.6,
+    color: "white",
+  },
+  call: {
+    fontFamily: "Spartan_400Regular",
+    fontSize: 18,
+    marginHorizontal: 30,
+    lineHeight: 25.2,
+    color: "white",
+    marginTop: 80,
+  },
+  input: {
+    borderBottomWidth: 1,
+    marginHorizontal: 30,
+    borderColor: "#939494",
+    marginTop: 20,
+    padding: 10,
+    fontFamily: "Spartan_400Regular",
+    fontSize: 24,
+    lineHeight: 28.8,
+    color: "white",
+  },
+  identify: {
+    fontFamily: "Spartan_400Regular",
+    fontSize: 18,
+    marginHorizontal: 30,
+    lineHeight: 25.2,
+    color: "white",
+    marginTop: 40,
+  },
+  btnCont: {
+    width: 300,
+    marginLeft: 30,
+    height: 200,
+    marginTop: 20,
+    flexDirection: "row",
+    flexWrap: "wrap",
+  },
+  choices: {
+    paddingTop: 12,
+    paddingBottom: 12,
+    paddingLeft: 25,
+    paddingRight: 25,
+    borderWidth: 2,
+    borderRadius: 30,
+    marginTop: 20,
+    marginLeft: 10,
+    borderColor: "white",
+  },
+  btnText: {
+    fontFamily: "Spartan_600SemiBold",
+    fontSize: 14,
+    lineHeight: 16.8,
+  },
+  next: {
+    marginTop: 30,
+    width: 320,
+    height: 60,
+    marginLeft: "auto",
+    marginRight: "auto",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 30,
+  },
+  text: {
+    color: "white",
+    fontFamily: "Spartan_600SemiBold",
+    fontSize: 18,
+    lineHeight: 21.6,
+  },
+});

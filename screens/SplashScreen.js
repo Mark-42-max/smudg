@@ -5,30 +5,21 @@ import {
   Image,
   TouchableOpacity,
   TextInput,
+  ImageBackground,
 } from "react-native";
 import React from "react";
-import { LinearGradient } from "expo-linear-gradient";
-import cloud from "../assets/cloud.png";
 import fb from "../assets/fb.png";
 import google from "../assets/google.png";
 import apple from "../assets/apple.png";
+import bg1 from "../assets/bg1.png";
+import Header from "../components/Header";
+import { useNavigation } from "@react-navigation/native";
 
 const SplashScreen = () => {
+  const navigation = useNavigation();
   return (
-    <View
-      style={{
-        flex: 1,
-        backgroundColor:
-          "radial-gradient(50% 50% at 50% 50%, rgba(196, 63, 83, 0.7) 0%, rgba(159, 140, 246, 0) 100%)",
-      }}
-    >
-      {/* <LinearGradient colors={["#C43F53", "#9F8CF6"]} style={{ flex: 1 }}> */}
-      <View style={styles.topCont}>
-        <Image source={cloud} />
-        <TouchableOpacity style={styles.login}>
-          <Text style={styles.loginText}>Log In</Text>
-        </TouchableOpacity>
-      </View>
+    <ImageBackground source={bg1} resizeMode="cover">
+      <Header />
       <Text style={styles.wel}>welcome to smudg</Text>
       <Text style={styles.create}>Create an account to get started</Text>
       <View style={styles.iconCont}>
@@ -45,40 +36,26 @@ const SplashScreen = () => {
       <Text style={styles.continue}>or continue with your</Text>
       <View style={styles.bottomCont}>
         <TextInput placeholder="Email address" style={styles.input} />
-        <TouchableOpacity style={styles.verify}>
+        <TouchableOpacity
+          style={styles.verify}
+          onPress={() => navigation.navigate("Welcome")}
+        >
           <Text style={styles.btnText}>Verify</Text>
         </TouchableOpacity>
       </View>
       <View style={styles.foot}>
         <Text style={styles.bottomText}>Signed up with phone?</Text>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("Dashboard")}>
           <Text style={styles.bottomText}> Sign in →</Text>
         </TouchableOpacity>
       </View>
-      {/* </LinearGradient> */}
-    </View>
+    </ImageBackground>
   );
 };
 
 export default SplashScreen;
 
 const styles = StyleSheet.create({
-  topCont: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    marginHorizontal: 30,
-    alignItems: "center",
-    marginTop: 50,
-  },
-  login: {
-    backgroundColor: "#C3FA4F",
-    width: 89,
-    height: 37,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 30,
-    borderWidth: 1,
-  },
   wel: {
     fontSize: 40,
     fontFamily: "Spartan_400Regular",
@@ -107,10 +84,6 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 16.8,
     fontFamily: "Spartan_500Medium",
-  },
-  loginText: {
-    fontFamily: "Spartan_600SemiBold",
-    fontSize: 14,
   },
   bottomCont: {
     marginHorizontal: 30,

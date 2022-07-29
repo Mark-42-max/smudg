@@ -2,65 +2,60 @@ import {
   StyleSheet,
   Text,
   View,
-  SafeAreaView,
   TouchableOpacity,
+  ImageBackground,
 } from "react-native";
 import React, { useState } from "react";
 import NavHeader from "../components/NavHeader";
-import tw from "tailwind-react-native-classnames";
 import { useNavigation } from "@react-navigation/native";
 import { useDispatch } from "react-redux";
 import { setQ4 } from "../slices/optionSlice";
+import bg1 from "../assets/bg1.png";
 
 const data = [
   {
     id: "1",
-    title: "Hair Cream",
+    title: "Button",
     active: false,
   },
   {
     id: "2",
-    title: "Lip Balm Organic ABC",
+    title: "eyeliner thin dark",
     active: false,
   },
   {
     id: "3",
-    title: "Eye Liner Thin Dark",
+    title: "sun tan lotion",
     active: false,
   },
   {
     id: "4",
-    title: "Eye Cream",
+    title: "eye cream",
     active: false,
   },
   {
     id: "5",
-    title: "Hair Spray For Curly Frizzy Hair",
+    title: "lip balm organic abc",
     active: false,
   },
   {
     id: "6",
-    title: "Lotion",
+    title: "mask",
     active: false,
   },
   {
     id: "7",
-    title: "Sun Tan Lotion",
+    title: "hair spray for curly frizzy hair",
     active: false,
   },
   {
     id: "8",
-    title: "Dark Circle Remover Gel",
+    title: "lotion",
     active: false,
   },
   {
     id: "9",
-    title: "Mask",
-    active: false,
-  },
-  {
-    id: "10",
-    title: "Eye Liner Thin Dark",
+    title: "dark circle remover gel",
     active: false,
   },
 ];
@@ -70,31 +65,26 @@ const Q4 = () => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
   return (
-    <SafeAreaView>
+    <ImageBackground source={bg1} resizeMode="cover">
       <NavHeader page={4} />
-      <Text
-        style={[tw`text-2xl mt-7 mx-10`, { fontFamily: "Inter_400Regular" }]}
-      >
-        What kind of products are you looking for?
+      <Text style={styles.text1}>
+        which products are on your mind, for now?
       </Text>
-      <Text
-        style={[
-          tw`text-base mt-3 mx-auto`,
-          { fontFamily: "Inter_400Regular", color: "#8F8F8F" },
-        ]}
-      >
-        Select atleast two options
+      <Text style={styles.text2}>
+        let’s make this investment effective and worth it for you.
       </Text>
       <View style={styles.container}>
         {op.map((item) => (
           <TouchableOpacity
             key={item.id}
-            style={[
-              tw`border border-gray-300 p-5 rounded-2xl ml-3 mt-2`,
-              {
-                backgroundColor: item.active === true ? "#ffecf4" : "white",
-              },
-            ]}
+            style={{
+              backgroundColor: item.active === true ? "#ffecf4" : "white",
+              borderRadius: 30,
+              paddingVertical: 12,
+              paddingHorizontal: 20,
+              marginTop: 16,
+              marginLeft: 16,
+            }}
             onPress={() => {
               setOp(
                 [...op].map((obj) => {
@@ -111,7 +101,7 @@ const Q4 = () => {
             <Text
               style={{
                 color: item.active === true ? "#EC0C77" : "black",
-                fontFamily: "Inter_600SemiBold",
+                fontFamily: "Spartan_600SemiBold",
               }}
             >
               {item.title}
@@ -121,24 +111,22 @@ const Q4 = () => {
       </View>
       <TouchableOpacity
         style={[
-          tw`items-center justify-center rounded-xl mt-5 mx-auto`,
-          { width: 300, height: 70, backgroundColor: "#EC0C77" },
+          styles.next,
+          {
+            backgroundColor:
+              op.filter((el) => el.active === true).length >= 1
+                ? "black"
+                : "#AEAFAF",
+          },
         ]}
         onPress={() => {
           dispatch(setQ4({ q4: op.filter((el) => el.active === true) }));
           navigation.navigate("Recommendation");
         }}
       >
-        <Text
-          style={[
-            tw`text-base text-white`,
-            { fontFamily: "Inter_600SemiBold" },
-          ]}
-        >
-          NEXT
-        </Text>
+        <Text style={styles.text}>Next</Text>
       </TouchableOpacity>
-    </SafeAreaView>
+    </ImageBackground>
   );
 };
 
@@ -152,5 +140,37 @@ const styles = StyleSheet.create({
     marginTop: 20,
     marginLeft: "auto",
     marginRight: "auto",
+  },
+  text1: {
+    fontFamily: "Spartan_500Medium",
+    marginTop: 70,
+    marginHorizontal: 30,
+    textAlign: "center",
+    fontSize: 24,
+    lineHeight: 32,
+  },
+  text2: {
+    marginTop: 30,
+    marginHorizontal: 40,
+    fontSize: 18,
+    lineHeight: 25.2,
+    fontFamily: "Spartan_400Regular",
+    textAlign: "center",
+  },
+  next: {
+    marginTop: 40,
+    width: 320,
+    height: 60,
+    marginLeft: "auto",
+    marginRight: "auto",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 30,
+  },
+  text: {
+    color: "white",
+    fontFamily: "Spartan_600SemiBold",
+    fontSize: 18,
+    lineHeight: 21.6,
   },
 });
